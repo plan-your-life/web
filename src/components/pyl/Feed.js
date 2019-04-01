@@ -275,6 +275,10 @@ export default class Feed extends React.Component {
             itemContainer = (<Typography variant="body1">Oh.. here seems to be nothing! Just create your first
                 reminders</Typography>)
         } else {
+            //Sort the items by date
+            this.state.items.sort((a,b) => {
+                return new Date(a.date) - new Date(b.date);
+            })
             this.state.items.forEach(item => {
                 const pushItem = (
                     <Grid key={item.key} item xs={7} style={{marginTop: '1%'}}>
@@ -283,8 +287,6 @@ export default class Feed extends React.Component {
                 );
                 if (item.done) done.push(pushItem);
                 else todo.push(pushItem);
-
-
             });
             console.log(done.length);
             itemContainer = (
