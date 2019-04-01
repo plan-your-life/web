@@ -72,7 +72,6 @@ class FeedItem extends React.Component {
 
     render() {
         let border;
-        console.log(this.props.item.done);
         //check if the feeditem needs a border
         if (new Date(this.props.item.date) > new Date() && this.props.item.done === undefined)
             border = "1px solid red"
